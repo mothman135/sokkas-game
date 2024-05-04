@@ -1,46 +1,89 @@
-[gd_scene load_steps=9 format=3 uid="uid://s72q61f4ovyy"]
+[gd_scene load_steps=15 format=3 uid="uid://s72q61f4ovyy"]
 
-[ext_resource type="Texture2D" uid="uid://duk175uw2nubp" path="res://asstes/sprites/knight.png" id="1_awiqj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ioc1l"]
+[ext_resource type="Texture2D" uid="uid://deoojc2pgrlsf" path="res://assets/sprites/Player/Rat_idle.png" id="2_ed5wx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jtsai"]
-atlas = ExtResource("1_awiqj")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma8so"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(0, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_458cs"]
-atlas = ExtResource("1_awiqj")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_40vn8"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(64, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86t4s"]
-atlas = ExtResource("1_awiqj")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_omkff"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(128, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5oebh"]
-atlas = ExtResource("1_awiqj")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlxox"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(192, 0, 64, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_addqk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_at1pn"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6fft"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3omf"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pgi5"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oejr5"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ct0o"]
+atlas = ExtResource("2_ed5wx")
+region = Rect2(576, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rw2oi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jtsai")
+"texture": SubResource("AtlasTexture_ma8so")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_458cs")
+"texture": SubResource("AtlasTexture_40vn8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_86t4s")
+"texture": SubResource("AtlasTexture_omkff")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5oebh")
+"texture": SubResource("AtlasTexture_jlxox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at1pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6fft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3omf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pgi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oejr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ct0o")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 9.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s7vmj"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbrbe"]
+radius = 8.0
+height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -49,11 +92,13 @@ script = ExtResource("1_ioc1l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
-sprite_frames = SubResource("SpriteFrames_addqk")
+sprite_frames = SubResource("SpriteFrames_rw2oi")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.860034
+frame = 5
+frame_progress = 0.857418
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_s7vmj")
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fbrbe")
